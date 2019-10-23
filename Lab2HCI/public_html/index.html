@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+     <title>Imenik</title>
+     <link rel="stylesheet" type="text/css" href="stil.css">
+     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    </head>
+    <body ng-app="myApp" ng-controller="userCtrl">
+        <div>
+        <h2>Kontakti</h2>
+        
+        <h4>Pretrazi kontakte:</h4>
+        
+        <form name="myForm1" >
+        <p><input type="text" ng-model="filt"></p>
+        
+        <table class="w3-table w3-bordered w3-striped">
+        <tr>
+          <th>Ime</th>
+          <th>Prezime</th>
+          <th>Telefon</th>
+          <th>E-mail</th>
+          <th></th>
+        </tr>
+        <tr ng-repeat="user in users | filter : filt | orderBy: 'ime' ">
+          
+          <td>
+              <label ng-hide=user.toChange >{{ user.ime }}</label>
+             
+              <input  class="w3-input w3-border" ng-show=user.toChange type="text" ng-model="person.novoime"  name="novoime"  required>
+              <span ng-show="myForm1.novoime.$touched && myForm1.novoime.$invalid && user.toChange">Niste uneli ime.</span>
+          </td>
+          <td>
+              <label ng-hide=user.toChange>{{ user.prezime }}</label>
+              
+             <input class="w3-input w3-border" ng-show=user.toChange type="text" ng-model="person.novoprezime"  name="novoprezime" required>
+            <span ng-show="myForm1.novoprezime.$touched && myForm1.novoprezime.$invalid && user.toChange">Niste uneli prezime.</span>
+          </td>
+          <td>
+               <label ng-hide=user.toChange >{{ user.telefon }}</label>
+              
+               <input class="w3-input w3-border" ng-show=user.toChange type="text" ng-model="person.novitelefon"  name="novitelefon" required>
+            <span ng-show="myForm1.novitelefon.$touched && myForm1.novitelefon.$invalid && user.toChange">Niste uneli telefon.</span>
+          </td>
+          <td>
+              <label ng-hide=user.toChange>{{ user.email }}</label>
+              
+              <input class="w3-input w3-border" ng-show=user.toChange name="noviemail" type="email" ng-model="person.noviemail"   >
+          </td>
+          <td>
+          <button class="w3-btn w3-ripple" ng-hide=user.toChange ng-click="showFormForChange(user.id)">&#9998; Izmeni</button>
+          <button class="w3-btn w3-ripple" ng-hide=user.toChange ng-click="deleteUser(user)">&#10006; Obrisi</button>
+          <button class="w3-btn w3-ripple" ng-show=user.toChange ng-click="editUser(user.id)">&#10004; OK</button>
+          <button class="w3-btn w3-ripple" ng-show=user.toChange ng-click="back(user.id)">&#10754; Otkazi</button>
+          </td>
+        </tr>
+      </table>
+        </form>
+        </div>
+        
+        <div>
+       <button class="w3-btn w3-teal w3-ripple" ng-click="showFormForAdd()">&#10010; Dodaj novi kontakt</button>
+
+        <form name="myForm" ng-hide="hideform">
+          <h3 >Kreiraj novog korisnika:</h3>
+
+            <label>Ime:</label>
+            <input class="w3-input w3-border" type="text" ng-model="ime" placeholder="Ime" name="ime"  required>
+           <span ng-show="myForm.ime.$touched && myForm.ime.$invalid">Niste uneli ime.</span>
+          <br>
+            <label>Prezime:</label>
+            <input class="w3-input w3-border" type="text" ng-model="prezime" placeholder="Prezime" name="prezime" required>
+            <span ng-show="myForm.prezime.$touched && myForm.prezime.$invalid">Niste uneli prezime.</span>
+          <br>
+            <label>Telefon:</label>
+            <input class="w3-input w3-border" type="text" ng-model="telefon" placeholder="Telefon" name="telefon" required>
+            <span ng-show="myForm.telefon.$touched && myForm.telefon.$invalid">Niste uneli telefon.</span>
+          <br>
+            <label>E-mail:</label>
+            <input class="w3-input w3-border" name="email" type="email" ng-model="email" placeholder="e-mail" >
+            
+          <br>
+          <button class="w3-btn w3-teal w3-ripple" ng-disabled="error" ng-click="addUser()">&#128190; Sacuvaj</button>
+        </form>
+            
+        </div>
+        
+        
+        <script src= "kontakti.js"></script>
+    </body>
+</html>

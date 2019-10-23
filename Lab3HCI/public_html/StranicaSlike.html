@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Slika</title>
+        <link rel="stylesheet" type="text/css" href="stil.css">
+	<!-- include libraries(jQuery, bootstrap) -->
+   <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script> 
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
+  <script type='text/javascript' src='bootbox/bootbox.js'></script>
+  <script type='text/javascript' src='bootbox/tests/bootbox.test.js'></script>
+  <script type='text/javascript' src='bootbox/tests/confirm.test.js'></script>
+
+  <!-- include summernote css/js-->
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.3/summernote.css" rel="stylesheet">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.3/summernote.js"></script>
+    </head>
+    <body>
+        <div id="zasliku">
+           
+        </div>
+        <br>
+        <h3>Opis:</h3>
+        <br>
+        <div id="zaopis" class='azuriranje'>
+          
+        </div>
+	<br>
+        <br>
+        <div id="buttons">
+	<button id="edit" class="btn btn-primary" onclick="edit()" type="button">Izmeni</button>
+	<button id="save" class="btn btn-primary" onclick="save()" type="button" disabled>Sacuvaj</button>
+        <button id="off" class="btn btn-primary" onclick="off()" type="button" disabled>Ponisti</button>
+        </div>
+        <div>
+            <label>  </label>
+        </div>
+    
+        
+        <script type="text/javascript"> 
+		
+                window.onload = function() {
+                    
+		var url = window.location.search;
+                //url = url.replace("?", '');
+                //url = url.replace("%22", '"');
+                //url = url.replace("%20", ' ');
+                //url = url.replace("%22", '"');
+                //alert(url);
+                var noviOpis='index.html?';
+                var duzinaOpisa=11;
+                
+                var container=document.getElementById("zasliku");
+                var container2=document.getElementById("zaopis");
+                var slika=document.createElement("img");
+                
+                
+                var length=url.length;
+                //alert(length);
+                var i=1;
+                var nadjen=false;
+                while( nadjen==false)
+                {
+                    if(url[i]=="0")
+                    {
+                        noviOpis[duzinaOpisa]='0';
+                        if(url[i+1]=="1")
+                        {
+                            slika.setAttribute("src", "Slike/image 1.jpg" );
+                            //container2.innerHTML = "Khaleesi";
+                            nadjen=true;
+                            noviOpis[duzinaOpisa+1]='1';
+                        }
+                        if(url[i+1]=="2")
+                        {
+                            slika.setAttribute("src", "Slike/image 2.jpg" );
+                            //container2.innerHTML = "Love";
+                            nadjen=true;
+                             noviOpis[duzinaOpisa+1]='2';
+                        }
+                        if(url[i+1]=="3")
+                        {
+                            slika.setAttribute("src", "Slike/image 3.jpg" );
+                            
+                            //container2.innerHTML = "Blue girl";
+                            nadjen=true;
+                             noviOpis[duzinaOpisa+1]='3';
+                        }
+                        if(url[i+1]=="4")
+                        {
+                            slika.setAttribute("src", "Slike/image 4.jpg" );
+                            //container2.innerHTML = "Sirens";
+                            nadjen=true;
+                             noviOpis[duzinaOpisa+1]='4';
+                        }
+                        if(url[i+1]=="5")
+                        {
+                            slika.setAttribute("src", "Slike/image 5.jpg" );
+                            //container2.innerHTML = "Siren";
+                            nadjen=true;
+                             noviOpis[duzinaOpisa+1]='5';
+                        }
+                        if(url[i+1]=="6")
+                        {
+                            slika.setAttribute("src", "Slike/image 6.jpg" );
+                            //container2.innerHTML = "Siren's kiss";
+                            nadjen=true;
+                             noviOpis[duzinaOpisa+1]='6';
+                        }
+                        if(url[i+1]=="7")
+                        {
+                            slika.setAttribute("src", "Slike/image 7.jpg" );
+                            //container2.innerHTML = "Beautiful girl";
+                            nadjen=true;
+                             noviOpis[duzinaOpisa+1]='7';
+                        }
+                        if(url[i+1]=="8")
+                        {
+                            slika.setAttribute("src", "Slike/image 8.jpg" );
+                            //container2.innerHTML = "Dragon";
+                            nadjen=true;
+                             noviOpis[duzinaOpisa+1]='8';
+                        }
+                        if(url[i+1]=="9")
+                        {
+                            slika.setAttribute("src", "Slike/image 9.jpg" );
+                            //container2.innerHTML = "Jellyfish tatto";
+                            nadjen=true;
+                             noviOpis[duzinaOpisa+1]='9';
+                        }
+                        
+                    }else
+                    {
+                        if(url[i]=="1")
+                        {
+                             noviOpis[duzinaOpisa]='1';
+                        if(url[i+1]=="1")
+                        {
+                            slika.setAttribute("src", "Slike/image 11.jpg" );
+                            //container2.innerHTML = "Sirens";
+                            nadjen=true;
+                             noviOpis[duzinaOpisa+1]='1';
+                        }
+                        if(url[i+1]=="2")
+                        {
+                            slika.setAttribute("src", "Slike/image 12.jpg" );
+                           // container2.innerHTML = "Siren";
+                            nadjen=true;
+                             noviOpis[duzinaOpisa+1]='2';
+                        }
+                        if(url[i+1]=="3")
+                        {
+                            slika.setAttribute("src", "Slike/image 13.jpg" );
+                            //container2.innerHTML = "Character from Bleach";
+                            nadjen=true;
+                             noviOpis[duzinaOpisa+1]='3';
+                        }
+                        if(url[i+1]=="4")
+                        {
+                            slika.setAttribute("src", "Slike/image 14.jpg" );
+                            //container2.innerHTML = "Siren in bathtub";
+                            nadjen=true;
+                             noviOpis[duzinaOpisa+1]='4';
+                        }
+                        if(url[i+1]=="5")
+                        {
+                            slika.setAttribute("src", "Slike/image 15.jpg" );
+                            //container2.innerHTML = "Beautiful drawing";
+                            nadjen=true;
+                             noviOpis[duzinaOpisa+1]='5';
+                        }
+                        if(url[i+1]=="6")
+                        {
+                            slika.setAttribute("src", "Slike/image 16.jpg" );
+                            //container2.innerHTML = "Mermaid in aquarium";
+                            nadjen=true;
+                             noviOpis[duzinaOpisa+1]='6';
+                        }
+                        if(url[i+1]=="7")
+                        {
+                            slika.setAttribute("src", "Slike/image 17.jpg" );
+                            //container2.innerHTML = "";
+                            nadjen=true;
+                             noviOpis[duzinaOpisa+1]='7';
+                        }
+                        if(url[i+1]=="8")
+                        {
+                            slika.setAttribute("src", "Slike/image 18.jpg" );
+                            //container2.innerHTML = "";
+                            nadjen=true;
+                             noviOpis[duzinaOpisa+1]='8';
+                        }
+                        if(url[i+1]=="9")
+                        {
+                            slika.setAttribute("src", "Slike/image 19.jpg" );
+                            //container2.innerHTML = "";
+                            nadjen=true;
+                             noviOpis[duzinaOpisa+1]='9';
+                        }
+                        if(url[i+1]=="0")
+                        {
+                            slika.setAttribute("src", "Slike/image 10.jpg" );
+                            //container2.innerHTML = "";
+                            nadjen=true;
+                             noviOpis[duzinaOpisa+1]='0';
+                        }
+                    }
+                    else{
+                         if(url[i]=="2")
+                        {
+                             noviOpis[duzinaOpisa]='2';
+                        if(url[i+1]=="1")
+                        {
+                            slika.setAttribute("src", "Slike/image 21.jpg" );
+                            //container2.innerHTML = "Beautiful boy";
+                            nadjen=true;
+                             noviOpis[duzinaOpisa+1]='1';
+                        }
+                        if(url[i+1]=="2")
+                        {
+                            slika.setAttribute("src", "Slike/image 22.jpg" );
+                            //container2.innerHTML = "";
+                            nadjen=true;
+                             noviOpis[duzinaOpisa+1]='2';
+                        }
+                        if(url[i+1]=="3")
+                        {
+                            slika.setAttribute("src", "Slike/image 23.jpg" );
+                            //container2.innerHTML = "Siren and harph";
+                            nadjen=true;
+                             noviOpis[duzinaOpisa+1]='3';
+                        }
+                        if(url[i+1]=="4")
+                        {
+                            slika.setAttribute("src", "Slike/image 24.jpg" );
+                            //container2.innerHTML = "";
+                            nadjen=true;
+                             noviOpis[duzinaOpisa+1]='4';
+                        }
+                        if(url[i+1]=="5")
+                        {
+                            slika.setAttribute("src", "Slike/image 25.jpg" );
+                            //container2.innerHTML = "Deer";
+                            nadjen=true;
+                             noviOpis[duzinaOpisa+1]='5';
+                        }
+                        if(url[i+1]=="0")
+                        {
+                            slika.setAttribute("src", "Slike/image 20.jpg" );
+                            //container2.innerHTML = "";
+                            nadjen=true;
+                             noviOpis[duzinaOpisa+1]='0';
+                        }
+                      
+                        }
+                        
+                    }
+                }
+                
+                
+                
+                 };
+                duzinaOpisa+=2;
+                
+                container.appendChild(slika);  
+                
+                 
+                
+                url = url.replace(url[1], '');
+                url = url.replace(url[1], '');
+                url = url.replace("?", '');
+                
+                var description=url;
+                
+                var razmak=description.includes("%20");
+                //alert(razmak.toString());
+                while(razmak==true){
+                description=description.replace("%20"," ");
+                razmak=description.includes("%20");
+                 }
+                var t = document.createTextNode(description.toString());
+               
+                
+                container2.appendChild(t);
+                
+                noviOpis=String.concat(noviOpis,description);
+                //alert(noviOpis);
+            };
+        var edit = function() {
+	document.getElementById("edit").disabled = true;
+	document.getElementById("save").disabled = false;
+        document.getElementById("off").disabled = false;
+       $('.azuriranje').summernote({focus: true});
+	};
+
+    var save = function() {
+	
+	
+         bootbox.confirm({
+        title: "Sacuvaj promene?",
+        message: "Da li ste sigurni da zelite da promenite opis slike?",
+        buttons: {
+            cancel: {
+                label: '<i class="fa fa-times"></i> Otkazi'
+            },
+            confirm: {
+                label: '<i class="fa fa-check"></i> Potvrdi'
+            }
+        },
+        callback: function (result) {
+            if(result==true)
+		{
+                        document.getElementById("edit").disabled = false;
+			document.getElementById("save").disabled = true;
+                        document.getElementById("off").disabled = true;
+		  var makrup = $('.azuriranje').summernote('code');
+                    $('.azuriranje').summernote('destroy');
+                 
+		}
+		else
+                    {
+			document.getElementById("edit").disabled = true;
+			document.getElementById("save").disabled = false;
+                        document.getElementById("off").disabled = false;
+			 $('.azuriranje').summernote({focus: true});
+			}
+       		 }
+    	});
+	};
+        var off = function() {
+            
+          bootbox.confirm({
+        title: "Otkazi promene?",
+        message: "Da li ste sigurni da ne zelite da sacuvate promene opisa slike?",
+        buttons: {
+            cancel: {
+                label: '<i class="fa fa-times"></i> Otkazi'
+            },
+            confirm: {
+                label: '<i class="fa fa-check"></i> Potvrdi'
+            }
+        },
+        callback: function (result) {
+            if(result==true)
+		{
+                       document.getElementById("edit").disabled = false;
+                        document.getElementById("save").disabled = true;
+                         document.getElementById("off").disabled = true;
+                          $('.azuriranje').summernote('reset');
+                          $('.azuriranje').summernote('destroy');
+                 
+		}
+		else
+                    {
+			document.getElementById("edit").disabled = true;
+			document.getElementById("save").disabled = false;
+                        document.getElementById("off").disabled = false;
+			 $('.azuriranje').summernote({focus: true});
+			}
+       		 }
+    	});
+	
+       
+	};
+	
+//var makrup = $('.azuriranje').summernote('code');
+  //$('.azuriranje').summernote('destroy');	
+	
+   </script>
+    </body>
+</html>
